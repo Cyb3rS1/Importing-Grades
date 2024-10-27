@@ -1,0 +1,121 @@
+Grade Portal Program
+Name: Sierra Smith
+Date Created: 10/26/2024
+
+Program Description: 
+
+This program is dedicated for instructors who need to input three exam grades for each of their students. 
+The first and last name, and all three exams of a student are recorded as a record into a CSV file. 
+After all student records are confirmed, the data from the csv file can be read in tabular format.
+
+
+Functions used in the Program (list in order as they are called):
+
+
+1. Function Name: main 
+ 
+     Description: First function to be called, contains all functions except for the read_file function.
+
+     Parameters: None  
+
+     Variables: None
+
+     Logical Steps: 
+
+	1. Prints a welcome message indicating that the program is a grade portal.
+
+     Returns: None
+
+
+2. Function Name: take_input  
+
+     Description: Function that takes input (student data) and stores it into a list. 
+	The list gets passed to write_file().
+
+     Parameters: None
+
+     Variables: 
+
+
+	1. how_many(integer input) - the number of students/ records that the teacher will record
+	2. DIV(string) – Divider used for making code look neater.
+	3. count(integer) - number that is compared to how_many
+	4. data(list) - Contains headers and all first-hand inputted student data.
+	5. student(string input) - inputted student information
+	6. info(list) - where the formatted (split) student data is stored before being appended to "data"
+
+     Logical Steps: 
+
+	1. Prompt user for number that represents how many student records will be recorded.
+	2. Define "count" variable.
+	3. Prompt user for student information as outlined in the displayed example.
+	4. Define "data" list including pre-entered headers inside of a sub list.
+	5. Use "while" loop to compare "how_many" to "count" so that it iterates for the number of times
+		defined as "how_many"
+	6. Add 1 to count for each iteration of the while loop.
+	7. Prompt user for input about a student.
+	8. Split the input by a ", " delimiter and add the formatted data to "info"
+	9. Append the formatted list to "data"
+	10. Reiterate loop until all students have been recorded.
+	11. Transfer "data" to write_file().
+
+     Returns: None
+
+
+3. Function Name: write_file 
+
+     Description: Writes data from "data" list into grades.csv file
+
+     Parameters: data(list) - contains table headers and formatted data of each student
+
+     Variables: 
+
+	1. file(file object) - Opens grades.csv for writing.
+	2. writer(file method object) - Enables writing to grades.csv.
+
+     Logical Steps: 
+
+	1. Open grades.csv for writing using "with" keyword, define the expression as "file"
+	2. Define a writer for the file, assigned to "writer"
+	3. Use "writer" to write multiple rows into the file at a time, using the student data derived
+		from "data"
+	4. Print success message after "data" has been recorded in grades.csv.
+
+     Returns: None
+
+4. Function Name: read_file 
+
+     Description: Reads the grades.csv file and displays its data in tabular format.
+
+     Parameters: None
+
+     Variables: 
+
+	1. table(list) - Empty list where each row from grades.csv is stored.
+	2. file(file object) - Opens grades.csv for reading.
+	3. csvreader(file method object) - Enables reading of grades.csv.
+	4. t(Texttable object) - Enables the use of the Texttable module.
+
+     Logical Steps: 
+
+	1. Define empty list as "table"
+	2. Open the grades.csv file for reading.
+	3. Define an object for using the Texttable module.
+	4. Use a "for" loop to append each row from the .csv file into the "table" list.
+	5. Use "t" to add all the data from "table" to the Texttable object.
+	6. Use "t" with the .draw method to print out the student data in tabular format.
+
+     Returns: None
+
+
+
+Logical Steps:
+
+	1. Call the main() function.
+	2. Call the take_input() function within the main() function.
+	3. Call the write_file(data) function within the take_input function.
+	4. Call the separate read_file function.
+
+Link to your repository: https://github.com/Cyb3rS1/Importing-Grades
+
+
